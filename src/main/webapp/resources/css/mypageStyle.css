@@ -1,0 +1,556 @@
+   @charset "EUC-KR";* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #232323;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 130vh;
+}
+
+.mypageContainer{
+  width: 90%;
+  margin: auto;
+}
+.navContainer {
+  width: 100%;
+  height: 17%;
+  display: flex;
+}
+
+.navContainer .logoContainer {
+  width: 20%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.navContainer .logoContainer h2 {
+  font-size: 38px;
+  letter-spacing: 2px;
+  color: #ac0c0c;
+}
+.navContainer .logoContainer span {
+  font-size: 9px;
+  letter-spacing: 6px;
+}
+
+.mypageHeader {
+  font-size: 32px;
+  color: #2b2b2b;
+  margin-left: 100px;
+  letter-spacing: 2px;
+  margin-top: 35px;
+}
+
+.divider-greeting {
+  width: 500px;
+  border-bottom: 0.5px solid #7c7c7c98;
+  margin: 15px 0 15px 100px;
+}
+
+.mypageGreeting {
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-bottom: 20px;
+}
+
+.mypagelists {
+  display: flex;
+  margin-left: 100px;
+}
+
+.mypagelists li {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  padding-bottom: 10px;
+  margin-bottom: 50px;
+  height: 30px;
+  width: 200px;
+  text-align: center;
+}
+
+.mypagelists li:hover {
+  border-bottom: 2px solid #d65f5f;
+  height: 28px;
+}
+.mypagelists li.active {
+  border-bottom: 2px solid #d65f5f;
+  height: 28px;
+}
+.detailContainer {
+  width: 940px;
+}
+
+.detailContainer h3{
+  text-align: left;
+  padding-left: 70px;
+  font-size: 16px;
+  margin-bottom: 40px;
+  color: #d65f5f;
+}
+
+.bookingList div, .historyDetail div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  align-items: center;
+
+}
+
+.bookingList div:first-child,
+.historyList div:first-child{
+  margin-left: 40px;
+}
+
+.bookingList div a,
+.historyList div a {
+  text-decoration: none;
+  color: #2b2b2b;
+}
+
+.bookingList{
+  margin-left: 60px;
+}
+
+.bookingLists .divider,
+.historyLists .divider{
+  width: 750px;
+  margin: 20px 0px 20px 160px;
+}
+.accomodationTexts,
+.historyTexts {
+  width: 500px;
+}
+.accomodationContent h2,
+.historyTexts h2 {
+  width: 400px;
+  text-align: left;
+}
+
+.accomodationContent > span,
+.historyContent > span {
+  margin: 7px 0px 2px 2px;
+  width: 380px;
+  display: block;
+  text-align: left;
+}
+.bookingInfo button {
+  width: 160px;
+  height: 38px;
+  background-color: #d65f5f;
+    margin-bottom: 20px;
+  border-radius: 7px;
+  color: #eeeeee;
+  font-size: 14px;
+  margin-top: 22px;
+  margin-left: 60px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.reservationDateInfo{
+  margin-left: 0px;
+}
+.reservationDates{
+  font-size: 14px;
+  margin-left: 10px;
+}
+.reservationState{
+  font-size: 16px;
+  background-color: #2d9979;
+  text-align: center;
+  height: 35px;
+  width: 100px;
+  color: #ffffff;
+  margin-top: 90px;
+  border-radius: 5px;
+  margin-left: 30px;
+  margin-right: 20px;
+}
+
+
+.reservationDetailInfoContainer{
+  width: 90%;
+  position: absolute;
+  background-color: #ffffff;
+  top: -280px;
+  left: 200px;
+  min-height: 600px;
+  border-radius: 20px;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.reservationDetailInfoContainer > div{
+  width: 90%;
+  padding: 10px;
+    margin: auto;
+}
+.reservationDetailInfoContainer > div h2{
+  margin-bottom: 20px;
+}
+
+.reservationDetailInfoContainer > div div{
+  margin-bottom: 20px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.reservationDetailInfoContainer > div div p{
+    font-size: 18 px;
+    margin-bottom: 5px;
+}
+.reservationInfoExit{
+  margin-right: 880px;
+  padding-top: 10px;
+  font-size: 24px;
+}
+.sendEmailContainer{
+  width: 95%;
+  margin: auto;
+}
+
+.sendEmailContainer h2{
+  text-align: center;
+}
+
+.sendEmailContainer input{
+  width: 600px;
+  height: 40px;
+  margin-left: 50px;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  border: 1px solid #eeeeee;
+}
+
+.sendEmailContainer textarea{
+  width: 610px;
+  height: 200px;
+  margin-left: 50px;
+   border: 1px solid #eeeeee;
+}
+
+.sendEmailContainer button{
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  margin-left: 200px;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #eeeeee;
+  background-color :#d65f5f;
+}
+
+
+.historyDetail{
+  display: none;
+  margin-left: 170px;
+  text-align: center;
+  align-items: center;
+  /* padding: 40px; */
+  /* overflow: scroll; */
+  /* height: 80vh; */
+}
+.bookingList,
+.historyList{
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+border-radius: 30px;
+}
+
+
+
+
+
+
+.complete{
+  background-color: grey;
+}
+/* .detailContainer li {
+  position: absolute;
+} */
+.bookingDetail,
+.wishListDetail,
+.myInfoDetail,
+.historyDetail {
+  position: absolute;
+}
+.bookingDetail {
+  margin-left: 150px;
+  text-align: center;
+  align-items: center;
+}
+
+.historyImage{
+  width: 150px;
+  margin: auto;
+}
+.bookingList img, .historyList img {
+  width: 135px;
+  height: 160px;
+  margin-right: 30px;
+  border-radius: 7px;
+  margin-top: 25px;
+}
+.accomodationContent h2 {
+  margin: 0 0 5px 0;
+}
+
+.wishListDetail {
+  width: 600px;
+  margin-left: 240px;
+  margin-top: 25px;
+  display: none;
+}
+
+.wishListDetail h3{
+  margin-bottom: 40px;
+  margin-top: -20px;
+  margin-left: -90px;
+}
+.wishLists .divider{
+  width: 550px;
+  margin: 20px auto;
+}
+.wishLists,
+li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+.wishLists li{
+  width: 750px;
+  margin-left: 40px;
+  display: flex;
+ }
+.wishLists li a {
+  display: flex;
+}
+
+.wishLists li img {
+  width: 120px;
+  height: 140px;
+  margin-right: 50px;
+  margin-left: 30px;
+  border-radius: 5px;
+}
+.wishListContent a{
+  color: #232323;
+}
+
+.wishListContent span{
+  margin: 7px 0px 2px 2px;
+  width: 480px;
+  display: block;
+}
+.wishListContent h2 {
+  margin: 5px 0 5px 0;
+  color: #ac0c0c;
+}
+
+.wishIcon {
+  width: 20px;
+  margin-top: 60px;
+  margin-left: 120px;
+}
+
+
+@font-face {
+  font-family: 'entypo';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/entypo.woff') format('woff');
+}
+
+.entypo-heart:before{
+  content:"\2665";
+}
+
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+  font-size: 2.1em;
+}
+
+
+.infoDetail {
+  display: none;
+  width: 800px;
+  height: 500px;
+  margin-left: 260px;
+  margin-top: 40px;
+}
+.infoDetail div form {
+  width: 600px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: 68px;
+  margin-top: 7px;
+}
+.infoDetail label {
+  font-size: 20px;
+  width: 200px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.infoDetail input:nth-child(2),
+.infoDetail input:nth-child(4),
+.infoDetail input:nth-child(6),
+.infoDetail input:nth-child(8) {
+  width: 300px;
+  height: 35px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 0.5px solid #c2c2c2;
+  padding-left: 5px;
+}
+.submitBtn {
+  margin: auto;
+  background-color: #d65f5f;
+  color: #eeeeee;
+  border-radius: 10px;
+  padding: 15px;
+  width: 300px;
+  height: 45px;
+  margin-top: 60px;
+}
+
+
+#myphone{
+   border: 0.5px solid #c2c2c2;
+  padding-left: 5px;
+  height: 35px;
+  width: 260px;
+  margin-top: 17px;
+}
+
+#smsSendBtn{
+  background-color: #d65f5f;
+  color: #eeeeee;
+  border-radius: 10px;
+  padding: 3px;
+  width: 80px;
+  height: 35px;
+  margin-left: 5px;
+  font-size: 14px;
+  margin: auto;
+}
+
+.divider-bottom{
+  width: 200px;
+  height: 1px;
+  border-bottom: 1px solid #898989;
+  margin: 20px auto;
+  margin-left: 265px;
+}
+
+.removeUser {
+  width: 190px;
+  margin: 5px auto;
+}
+
+.removeUser button{
+  background-color: #eeeeee;
+  color: #232323;
+  border-radius: 10px;
+  padding: 3px;
+  height: 30px;
+  /* margin-left: 62px; */
+  margin-bottom: 57px;
+  width: 100%;
+  margin: auto;
+}
+
+.phoneCheck label{
+  width: 200px;
+  margin-left: 52px;
+  padding-right: 63px;
+}
+
+.paymentDetail{
+  display: none;
+  width: 920px;
+  margin-left: 210px;
+  height: 70vh;
+  overflow: scroll;
+}
+
+.paymentDetilContainer{
+  width: 900px;
+  margin: 20px auto;
+}
+.paymentDetilContainer div{
+  width: 300px;
+  color: #ffffff;
+  margin:auto;
+} 
+.paymentDetilContainer div input{
+  width: 250px;
+  height: 30px;
+  margin-left: 20px;
+}
+
+#status_keyword{
+  width: 100px;
+  height: 25px;
+}
+
+#setBtn{
+  width: 80px;
+  height: 25px;
+  background-color: #d65f5f;
+  color: #eeeeee;
+  border-radius: 7px;
+
+}
+
+.paymentDetilContainer ul, li{
+  color: #232323;
+  font-size: 14px;
+}
+#payDiv{
+  margin-left: 120px;
+  padding-top: 20px;
+}
+.paymentDetilContainer #payDiv > ul{
+  width:550px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+#payDiv input{
+  background-color: #d65f5f;
+  color: #eeeeee;
+  width: 150px;
+  height: 35px;
+  border-radius: 7px;
+}
+
+#smsNumConfirm{
+  margin-left: 200px;
+  width: 150px;
+}
+
+#smsNumCheckBtn{
+  width: 100px;
+  height: 35px;
+  background-color: #d65f5f;
+  border-radius: 10px;
+  color: #eeeeee;
+  margin-left:3px;
+}
+
+

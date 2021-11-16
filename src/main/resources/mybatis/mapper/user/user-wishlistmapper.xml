@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.main.sheerhouse.user.mapper.UserWishListMapper">
+	<insert id="insertWishList"> 
+		INSERT INTO wishlists (home_seq, act_seq, email, status) values(#{home_seq}, 0 ,  #{email}, 'selected')
+	</insert>
+ 	<delete id="deleteWishlist">
+		DELETE FROM wishlists where email = #{email} and home_seq=#{home_seq}
+	</delete>
+	<select id="selectUserWishlist" resultType="int">
+		select home_seq from wishlists where email=#{email}
+	</select>
+</mapper>

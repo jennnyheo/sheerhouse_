@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.main.sheerhouse.admin.mapper.AdminBannerMapper">
+
+	<!-- home테이블의 전체 내용을 보여주는 쿼리문 -->
+	<select id="getBannerList" resultType="com.main.sheerhouse.admin.domain.BannerVO">
+		select * from banner
+	</select>
+	
+	<!-- 이미지 등록 query -->
+	<insert id="insertUploadImg">
+		insert into banner(bannerNum, originalFileName, s3FileName, bannerUrl)
+		values (#{bannerNum}, #{originalFileName}, #{s3FileName}, #{bannerUrl})
+	</insert>
+	
+	<select id="getBannerNum" resultType="int">
+		SELECT MAX(bannerNum)+1 as lastNum FROM banner
+	</select>
+	
+	<!-- 배너 able -->
+	<update id="ableBanner">
+		UPDATE banner SET bannerShow = 1 WHERE bannerNum = #{bannerNum}
+	</update>
+	
+	<!-- 배너 disable -->
+	<update id="disableBanner">
+		UPDATE banner SET bannerShow = 0 WHERE bannerNum = #{bannerNum}
+	</update>
+	
+</mapper>

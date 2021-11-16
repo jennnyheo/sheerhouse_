@@ -1,0 +1,217 @@
+@charset "UTF-8";
+
+
+* {
+	box-sizing:border-box
+}
+
+body{
+  font-family: "Roboto", sans-serif;
+}
+
+
+ol,ul li{
+    list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
+nav{
+  width: 90%;
+  margin:auto;
+  display: flex;
+  justify-content: space-between
+}
+nav div img{
+  width: 150px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+nav ul{
+  display: flex;
+  margin-top: 40px;
+}
+nav ul li{
+  margin-right: 30px;
+  font-size: 18px;
+
+}
+
+
+nav ul li a{
+  color: #232323;
+}
+
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 800px;
+  height: 450px;
+  background-color: #eeeeee;
+  text-align: center;
+}
+.prev{
+  left: 40px;
+}
+.next{
+  margin-right: -40px;
+}
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.header h2{
+  font-size: 14px;
+  color: #565656;
+}
+.reservationInfoDetail{
+    width: 750px;
+    margin: 10px auto;
+    padding-left: 20px;
+}
+
+
+.reservationInfoDetail .title{
+    font-size: 32px;
+    color: #232323;
+    margin-bottom: 40px;
+    color: #e55757;
+}
+
+
+.sendEmailContainer{
+    width: 750px;
+    margin-top: 50px;
+    padding-right: 70px;
+
+}
+ .sendEmailContainer input{
+    display: block;
+    width: 500px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid #eeeeee;
+    margin: auto;
+}
+
+.sendEmailContainer textarea{
+    display: block;
+    width: 700px;
+    min-height: 200px;
+    margin: 20px auto;
+    border-radius: 3px;
+    border: 1px solid #787878;
+
+}
+
+.sendEmailContainer button{
+    display: block;
+     margin-top: 30px;
+     width: 200px;
+     height: 45px;
+     margin: auto;
+     color: #eeeeee;
+     border: none;
+     background-color: #d65f5f;
+     border-radius: 3px;
+     font-size: 16px;
+ }
+
+ 
+.divider {
+  width: 100%;
+  border-bottom: 0.5px solid #7c7c7c98;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+ 

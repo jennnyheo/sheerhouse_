@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.main.sheerhouse.admin.mapper.AdminPayAndSetMapper">
+	<select id="selectList" resultType="com.main.sheerhouse.admin.domain.PayAndSetVO">
+		select  r.apply_num, 
+        (select email from host where host_seq=(select host_seq from home where home_seq=r.home_seq)) as host_email, 
+        s.status as set_status,
+		s.update_date as set_date, truncate((r.total_price*(1-15/100)),0) as set_price,
+		r.email as user_email, r.total_price, r.pay_status, r.pay_date, r.cancel_reason
+		from reservation as r left outer join settlement_history as s
+		on r.apply_num = s.apply_num
+		order by  s.status asc, r.pay_date asc
+	</select>
+	<select id="selectListCount" resultType="int">
+		select count(r.apply_num)
+		from reservation as r left outer join settlement_history as s
+		on r.apply_num = s.apply_num
+		order by  s.status asc, r.pay_date asc
+	</select>
+	
+	<select id ="selectListPaging" resultType="com.main.sheerhouse.admin.domain.PayAndSetVO">
+		select  r.apply_num, 
+        (select email from host where host_seq=(select host_seq from home where home_seq=r.home_seq)) as host_email, 
+        s.status as set_status,
+		s.update_date as set_date, truncate((r.total_price*(1-15/100)),0) as set_price,
+		r.email as user_email, r.total_price, r.pay_status, r.pay_date, r.cancel_reason
+		from reservation as r left outer join settlement_history as s
+		on r.apply_num = s.apply_num
+		order by  s.status asc, r.pay_date ASC
+	</select>
+
+	<select id="selectKeywordList" resultType="com.main.sheerhouse.admin.domain.PayAndSetVO">
+		select  s.apply_num, (select email from host where host_seq=s.host_seq) as host_email, s.status as set_status,
+		s.update_date as set_date, truncate((r.total_price*(1-15/100)),0) as set_price,
+		r.email as user_email, r.total_price, r.pay_status, r.pay_date, r.cancel_reason
+		from reservation as r left outer join settlement_history as s
+		on r.apply_num = s.apply_num
+		<choose> 
+			<when test='search_keyword.equals("all") and startDate.equals("")'><!-- 전체, 날짜지정 x -->
+			</when>
+			<when test='search_keyword.equals("all") and !startDate.equals("")'> <!-- 전체, 날짜지정 o -->
+				 <![CDATA[where r.pay_date <=#{endDate}+1 and r.pay_date >=#{startDate} ]]>
+			</when>
+			<when test='search_keyword.equals("paid")'> <!-- 상태지정o, 날짜지정 x -->
+				where r.pay_status=#{search_keyword}
+			</when>
+			<when test='search_keyword.equals("stay")'>
+				where r.pay_status=#{search_keyword}
+			</when>
+			<when test='search_keyword.equals("failed")'>
+				where r.pay_status=#{search_keyword}
+			</when>
+			<when test='search_keyword.equals("true")'>
+				where s.status=#{search_keyword}
+			</when>
+			<when test='search_keyword.equals("false")'>
+				where s.status=#{search_keyword}
+			</when>
+			<when test='search_keyword.equals("paid") and !startDate.equals("")'> <!-- 상태지정o, 날짜지정 x -->
+				where r.pay_status=#{search_keyword} and <![CDATA[r.pay_date <=#{endDate}+1 and r.pay_date >=#{startDate} ]]>
+			</when>
+			<when test='search_keyword.equals("stay") and !startDate.equals("")'>
+				where r.pay_status=#{search_keyword} and <![CDATA[r.pay_date <=#{endDate}+1 and r.pay_date >=#{startDate} ]]>
+			</when>
+			<when test='search_keyword.equals("failed") and !startDate.equals("")'>
+				where r.pay_status=#{search_keyword} and <![CDATA[r.pay_date <=#{endDate}+1 and r.pay_date >=#{startDate} ]]>
+			</when>
+			<when test='search_keyword.equals("true") and !startDate.equals("")'>
+				where s.status=#{search_keyword} and <![CDATA[r.pay_date <=#{endDate}+1 and r.pay_date >=#{startDate} ]]>
+			</when>
+			<when test='search_keyword.equals("false") and !startDate.equals("")'>
+				where s.status=#{search_keyword} and <![CDATA[r.pay_date <=#{endDate}+1 and r.pay_date >=#{startDate} ]]>
+			</when>
+		</choose>	
+		order by s.status asc, r.pay_date asc
+	</select>
+	<update id="setCheckApply" parameterType="java.util.Arrays">
+		update settlement_history 
+		set status='true', update_date=CURRENT_TIMESTAMP
+		where apply_num in
+		<foreach collection="array" item="num" open="(" close=")" separator=",">
+				#{num}
+		</foreach>
+	</update>
+		<update id="resCheckApply" parameterType="java.util.Arrays">
+		update reservation 
+		set pay_status='failed'
+		where apply_num in
+		<foreach collection="array" item="list" open="(" close=")" separator=",">
+				#{list}
+		</foreach>
+	</update>
+	<select id="selectExcelData" resultType="com.main.sheerhouse.admin.domain.PayAndSetVO">
+		select  r.apply_num, 
+        (select email from host where host_seq=(select host_seq from home where home_seq=r.home_seq)) as host_email, 
+        s.status as set_status,
+		s.update_date as set_date, truncate((r.total_price*(1-15/100)),0) as set_price,
+		r.email as user_email, r.total_price, r.pay_status, r.pay_date, r.cancel_reason
+		from reservation as r left outer join settlement_history as s
+		on r.apply_num = s.apply_num
+		<choose>
+			<when test='startDate.equals("")'>
+			</when>
+			<otherwise>
+				where <![CDATA[r.pay_date <=#{endDate}+1 and r.pay_date >=#{startDate} ]]>
+			</otherwise>
+		</choose>
+		order by  s.status asc, r.pay_date asc
+	</select>
+</mapper>

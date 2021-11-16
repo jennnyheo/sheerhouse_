@@ -1,0 +1,646 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #2b2b2b;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 130vh;
+}
+
+.navContainer {
+  width: 100%;
+  height: 17%;
+  display: flex;
+}
+
+.navContainer .logoContainer {
+  width: 20%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.navContainer .logoContainer h2 {
+  font-size: 38px;
+  letter-spacing: 2px;
+  color: #ac0c0c;
+}
+.navContainer .logoContainer span {
+  font-size: 9px;
+  letter-spacing: 6px;
+}
+
+.myhostHeader {
+  font-size: 32px;
+  color: #2b2b2b;
+  margin-left: 100px;
+  letter-spacing: 2px;
+  margin-top: 20px;
+}
+.myhostHeader p {
+  top: 0;
+  font-size: 14px;
+}
+.divider-host{
+  width: 900px;
+  border-bottom: 0.5px solid #7c7c7c98;
+  margin: 15px 0 15px 100px;
+}
+
+.myhostGreeting {
+  margin-left: 100px;
+  margin-bottom: 30px;
+  padding-top: 12px;
+}
+
+.myhostlists {
+  display: flex;
+  margin-left: 100px;
+}
+
+.myhostlists li {
+  padding: 15px;
+  font-size: 20px;
+  margin-right: 50px;
+  cursor: pointer;
+  margin-bottom: 50px;
+  height: 30px;
+  margin-right: 80px;
+}
+
+.myhostlists li:hover {
+  border-bottom: 2px solid #d65f5f;
+  height: 28px;
+}
+.myhostlists li.active {
+  border-bottom: 2px solid #d65f5f;
+  height: 28px;
+}
+
+.detailContainer {
+  width: 940px;
+}
+.hostingList div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.hostingList div a {
+  text-decoration: none;
+  color: #2b2b2b;
+}
+.accomodationTexts {
+  width: 500px;
+}
+.accomodationContent h2 {
+  width: 500px;
+  text-align: left;
+} 
+
+.accomodationContent div span{
+  /* background-color: aliceblue; */
+  /* display: block; */
+  width: 100%;
+  text-align: left;
+  margin-bottom: 3px;
+}
+
+.hostingInfoBtn input {
+  width: 180px;
+  height: 38px;
+  background-color: #d65f5f;
+  color: #eeeeee;
+  font-size: 14px;
+  margin-top: 22px;
+  margin-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 2px;
+  text-align: center;
+  border-radius: 7px;
+}
+/* .detailContainer li {
+    position: absolute;
+  } */
+.hostDetail,
+.reservationDetail,
+.hostinfoDetail,
+.paymentDetail {
+  position: absolute;
+  width: 900px;
+  margin-left: 120px;
+}
+
+.reservationDetail,
+.historyDetail,
+.hostinfoDetail,
+.paymentDetail {
+  display: none;
+}
+.hostDetail {
+  margin-left: 100px;
+  text-align: center;
+  align-items: center;
+}
+.hostDetail > h3 {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  margin: 0 0 28px 80px;
+}
+.hostingList{
+  margin-left: 100px;
+  width: 800px;
+  padding: 25px;
+  margin-bottom: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.hostingList img {
+  width: 120px;
+  height: 140px;
+  margin-right: 50px;
+  margin-left: 40px;
+  border-radius: 5px;
+}
+.myhostlists li.active {
+  border-bottom: 2px solid #d65f5f;
+  height: 28px;
+}
+
+.accomodationContent h2 {
+  margin: 0 0 5px 0;
+}
+
+.reservationDetail {
+  width: 800px;
+  margin-left: 100px;
+}
+
+.reservationDetail > h3 {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  margin: 0 0 38px 80px;
+}
+.reservationLists,
+li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+.reservationLists li{
+  width: 740px;
+  margin: 20px auto;
+  border: none;
+  margin-bottom: 37px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 7px;
+  padding-bottom: 20px;
+}
+
+.reservationLists li a {
+  display: flex;
+}
+
+.reservationContent {
+  width: 350px;
+}
+.reservationContent h3{
+  margin-left: -10px;
+}
+.reservationLists li img {
+  width: 120px;
+  height: 140px;
+  margin-right: 50px;
+  margin-left: 30px;
+  border-radius: 5px;
+  align-items: center;
+  margin-top: 41px;
+}
+.reaservation-userInfo {
+  margin: 8px 0 3px 0;
+  font-size: 16 px;
+  padding-top: 10px;
+}
+
+.reservationContent h3 {
+  margin: 30px 0 5px 0;
+}
+.reservationDetail .moreInfoBtn{
+  margin-left: 190px;
+}
+.reservationDetail .moreInfoBtn input{
+  width: 150pxaccomodationContent
+}
+.historyDetail .moreInfoBtn input {
+  width: 150px;
+  height: 38px;
+  background-color: #d65f5f;
+  color: #eeeeee;
+  margin-top: 18px;
+  border-radius: 2px;
+  text-align: center;
+  margin-left: 200px;
+  border-radius: 7px;
+}
+.moreInfoBtn input {
+  width: 100px;
+  height: 38px;
+  background-color: #d65f5f;
+  color: #eeeeee;
+  margin-top: 18px;
+  border-radius: 2px;
+  text-align: center;
+  /* margin-left: 81px; */
+  border-radius: 7px;
+}
+
+.hostinfoDetail {
+  width: 800px;
+  height: 900px;
+  margin-left: 130px;
+}
+.hostinfoDetail div form {
+  width: 640px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: 158px;
+  margin-top: 10px;
+}
+.hostinfoDetail label {
+  font-size: 20px;
+  width: 200px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.hostinfoDetail input:nth-child(2),
+.hostinfoDetail input:nth-child(4),
+.hostinfoDetail input:nth-child(6),
+.hostinfoDetail input:nth-child(8) {
+  width: 300px;
+  height: 35px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 0.5px solid #c2c2c2;
+  padding-left: 5px;
+}
+.hostinfoDetail textarea {
+  width: 310px;
+  height: 200px;
+  border: 0.5px solid #c2c2c2;
+}
+.submitBtn {
+  margin: auto;
+  background-color: #d65f5f;
+  color: #eeeeee;
+  border-radius: 2px;
+  padding: 15px;
+  width: 300px;
+  height: 45px;
+  margin-top: 60px;
+  border-radius: 7px;
+}
+
+.hostinfoDetail > h3 {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  margin-left: 46px;
+  margin-bottom: 50px;
+}
+
+.addmore button {
+  width: 180px;
+  height: 42px;
+  background-color: #d65f5f;
+  border-radius: 2px;
+  text-align: center;
+  color: #eeeeee;
+  margin-left: 85%;
+  margin-bottom: 25px;
+  border-radius: 7px;
+}
+.modal1 {
+  display: none;
+}
+.modal1-container {
+  width: 310px;
+  height: 120px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  position: absolute;
+  left: 42%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.modal1-container span {
+  margin: 15px 0 0 0;
+  font-size: 16px;
+  display: block;
+  text-align: center;
+}
+.moveToRegiBtn {
+  width: 100px;
+  height: 30px;
+  background-color: #d65f5f;
+  color: #eeeeee;
+  margin: 20px 0 10px 100px;
+}
+.modal1-img img {
+  width: 12px;
+  margin: 7px 0 0 10px;
+}
+
+.reservationDetail,
+.historyDetail{
+  width: 900px;
+  margin-left: 150px;
+}
+
+.historyDetail h3{
+  font-size: 14px;
+  /* margin-left: 35px; */
+}
+
+#smsSendBtn{
+  display: block;
+  width: 140px;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  border: none;
+  background-color: #d65f5f;
+  color: #eeeeee;
+
+}
+
+.introductionInputs{
+  display: flex;
+}
+
+
+.paymentDetail{
+  padding: 20px;
+}
+
+#uploadBtn{
+  margin-bottom: 35px;
+  height: 40px;
+  border-radius: 7px;
+}
+.stats{
+  display:flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.stat{
+  margin-right: 240px;
+  margin-left: 10px;
+}
+
+.paymentDetail span{
+  display: block;
+  padding: 7px;
+}
+
+.paymentDetail h3{
+  margin-bottom: 10px;
+  color: #565656;
+}
+
+.charts{
+  display: flex;
+}
+.charts div:first-child{
+  margin-right: 10px;
+}
+
+.charts span{
+  color: #d65f5f;
+  font-weight: 700;
+}
+#sendAdminEmail{
+  width: 200px;
+  height: 40px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
+
+#setBtn{
+  background-color: #e36f6f;
+  width: 60px;
+  height: 28px;
+  color: #eeeeee;
+  border-radius: 5px;
+}
+#cancelMsg{
+  text-align: center;
+  margin-top: 10px
+}
+
+#cancel_reason{
+  background-color: transparent;
+  text-align: center;
+}
+
+.res-modal{
+  height: 120%;
+}
+.resHeader{
+  padding-top: 20px;
+}
+.res-modalContent span{
+  width: 290px;
+  margin-bottom: 10px;
+}
+.resForm{
+  margin-top: 20px
+}
+.resForm input{
+  background-color: transparent;
+  text-align: right;
+  right: 0;
+  margin-left: 10px;
+
+}
+
+.resForm input[type="button"]{
+  width: 150px;
+  background-color: #d65f5f;
+  text-align: center;
+  height: 35px;
+  color: #eeeeee;
+  border-radius: 7px;
+  margin-top: 10px;
+}
+
+.emailForm span{
+  margin-bottom: 10px;
+}
+
+
+.emailHeader{
+  padding-top: 20px;
+}
+
+.emailForm input[type=button]{
+  width: 150px;
+  background-color: #d65f5f;
+  margin-bottom: 6px;
+  height: 35px;
+  border-radius: 7px;
+  text-align: center;
+  color: #eeeeee;
+}
+
+.res-modalContent{
+  height: 430px;
+}
+
+.email-modalContent{
+  height: 500px;
+}
+
+#setList{
+  margin-top: 10px;
+}
+
+#setList h2{
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+#setList span{
+  font-size: 14px;
+}
+
+
+.resForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.res-modal {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+}
+.divider-res {
+  width: 50%;
+  border-bottom: 1px solid #d65f5f;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.res-modalContent {
+  margin: 130px auto;
+  width: 450px;
+  height: 450px;
+  background-color: #eeeeee;
+  border-radius: 0.6rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  animation-name: modalopen;
+  animation-duration: 0.5s;
+}
+.resHeader {
+  text-align: center;
+  color: #6f1313;
+  font-size: 20px;
+}
+
+.emailForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.email-modal {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+}
+.divider-email {
+  width: 50%;
+  border-bottom: 1px solid #d65f5f;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.email-modalContent {
+  margin: 130px auto;
+  width: 450px;
+  background-color: #eeeeee;
+  border-radius: 0.6rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  animation-name: modalopen;
+  animation-duration: 0.5s;
+}
+.emailHeader {
+  text-align: center;
+  color: #6f1313;
+  font-size: 20px;
+}
+
+.admin-emailForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.admin-email-modal {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+}
+.admin-divider-email {
+  width: 50%;
+  border-bottom: 1px solid #d65f5f;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.admin-email-modalContent {
+  margin: 130px auto;
+  width: 450px;
+  height: 400px;
+  background-color: #eeeeee;
+  border-radius: 0.6rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  animation-name: modalopen;
+  animation-duration: 0.5s;
+}
+.admin-emailHeader {
+  text-align: center;
+  color: #6f1313;
+  font-size: 20px;
+}

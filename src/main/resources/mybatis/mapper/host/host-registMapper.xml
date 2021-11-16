@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.main.sheerhouse.host.mapper.HostRegistMapper">
+	<update id="userRoleSet">
+		update user set role=#{role} where email=#{email}
+	</update>
+	<insert id="hostRegist" >
+		insert into host (email, name) values (#{email}, #{name})
+	</insert>
+	<select id="hostSelect" resultType="com.main.sheerhouse.host.domain.HostVO">
+		select * from host where email=#{email}
+	</select>
+	<select id="hostCheck" resultType="String">	
+		select email from host where email=#{email}
+	</select>
+	<insert id="homeRegist" useGeneratedKeys="false" parameterType="com.main.sheerhouse.host.domain.HomeVO">
+		<selectKey order="BEFORE" resultType="com.main.sheerhouse.host.domain.HostVO" keyProperty="host_seq,host_info" keyColumn="host_seq,host_info">
+			select host_seq, host_info from host where email=#{email}
+		</selectKey>
+		insert into home 
+		(host_seq, host_info, title, type, address, price, headcount, info, url)
+		values
+		(#{host_seq}, #{host_info}, #{homes.title}, #{homes.type}, #{homes.address}, #{homes.price}, #{homes.headcount}, #{homes.info}, #{homes.url})
+	</insert>
+</mapper>

@@ -1,0 +1,777 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.backgroundDarker {
+  background-color: rgba(30, 30, 30, 0.64);
+}
+
+.navContainer {
+  width: 100%;
+  height: 17%;
+  display: flex;
+  position: absolute;
+  z-index: 9999;
+}
+
+.navContainer .logoContainer {
+  width: 20%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.navContainer .logoContainer img {
+  width: 120px;
+  padding-top: 10px;
+}
+
+.navContainer .logoContainer span {
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: #ac0c0c;
+}
+
+.bar {
+    width: 50px;
+    height: 4px;
+    background-color: #ebebeb;
+    margin-left: 80px;
+    margin-top: 10px;
+}
+
+.navContainer .menuContainer {
+  width: 25%;
+  margin-top: 2rem;
+  position: absolute;
+  right: 0;
+}
+.navContainer .menus {
+  display: flex;
+  margin-top: 10px;
+}
+.navContainer .menus li {
+  margin-left: 2rem;
+  cursor: pointer;
+  color: #ffff;
+  font-size: 14px;
+}
+
+.navContainer .menus li a {
+  color: #ffff;
+}
+
+/* //banner section */
+
+.bannerContainer {
+  width: 100%;
+  height: 90vh;
+}
+
+
+.bannerCity {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+}
+
+.bannerCity h1 {
+  font-size: 420px;
+  color: rgba(100, 100, 111, 0.4);
+  letter-spacing: 15px;
+  text-align: center;
+}
+
+.bannerContainer .bannerImage img {
+  width: 100%;
+  height: 100vh;
+  mix-blend-mode: darken;
+}
+.subHeader {
+  position: absolute;
+  top: 70%;
+  width: 100%;
+  text-align: center;
+  color: #ebebeb;
+}
+
+.subHeader h2 {
+  color: #eeeeee;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.subHeader .bar2 {
+  width: 50px;
+  height: 5px;
+  background-color: #ebebeb;
+  margin-left: 48%;
+  margin-top: 20px;
+}
+.tabMenu{
+  width: 100%;
+  position: absolute;
+  top:250px;
+  text-align: center;
+}
+.tabMenu span.accomodationSearch{
+  color: #ffff;
+  margin-right: 20px;
+  font-size: 18px;
+  padding-bottom: 3px;
+  cursor: pointer;
+}
+
+.tabMenu span.activitySearch{
+  color: #ffff;
+  font-size: 18px;
+  padding-bottom: 3px;
+  cursor: pointer;
+}
+.searchContainer-activity {
+  width: 980px;
+  height: 70px;
+  background-color: #eeeeee;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 20%;
+  top: 48%;
+  border-radius: 9999px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  z-index: 1;
+}
+
+
+.searchContainer-activity .search button {
+  border: none;
+  width: 5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  background-color: #e55757;
+  margin-top: 7px;
+  margin-right: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.searchContainer-activity .search span{
+  color: #eeeeee;
+  font-weight:500;
+  font-size: 17px;
+}
+.searchContainer-activity .search img {
+  width: 1.2rem;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.searchContainer-activity h3{
+  font-size: 15px;
+  padding: 0.7rem 0 0.3rem 0;
+}
+
+
+.searchContainer {
+  width: 980px;
+  height: 70px;
+  background-color: #eeeeee;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 18%;
+  top: 48%;
+  border-radius: 9999px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  z-index: 2;
+}
+
+.searchContainer div h3 {
+  font-size: 15px;
+  padding: 0.7rem 0 0.3rem 0;
+}
+
+.peopleBtnContainer {
+  display: none;
+  width: 240px;
+  height: 60px;
+  background-color: #ebebeb;
+  margin-top: 15px;
+  border-radius: 2rem;
+}
+.peopleBtnContainer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 11px;
+}
+.peopleBtnContainer div .peopleBtnHeader {
+  width: 80px;
+  text-align: left;
+}
+.peopleBtnContainer input {
+  width: 40px;
+  text-align: center;
+  height: 30px;
+  background-color: transparent;
+  font-size: 14px;
+}
+
+.peopleBtnContainer .addBtns {
+  width: 45px;
+  height: 40px;
+  background-color: #e55757;
+  border-radius: 9999px;
+  margin: 10px;
+  color: #eeeeee;
+  font-size: 18px;
+}
+.searchContainer .search button {
+  border: none;
+  width: 5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  background-color: #e55757;
+  margin-top: 7px;
+  margin-right: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.searchContainer .search span{
+  color: #eeeeee;
+  font-weight:500;
+  font-size: 17px;
+}
+.searchContainer .search img {
+  width: 1.2rem;
+  text-align: center;
+  margin-top: 2px;
+}
+
+
+
+
+
+
+.searchWhere {
+  width: 220px;
+  padding-left: 30px;
+  border-radius: 9999px;
+  transition: 0.15s ease;
+}
+
+.searchWhere input {
+  background-color: transparent;
+  height: 25px;
+  border: none;
+}
+
+.searchIn {
+  width: 190px;
+  padding-left: 30px;
+  border-radius: 9999px;
+  transition: 0.15s ease;
+}
+.searchOut {
+  width: 190px;
+  padding-left: 30px;
+  border-radius: 9999px;
+  transition: 0.15s ease;
+}
+.searchPeo {
+  width: 170px;
+  padding-left: 30px;
+  border-radius: 9999px;
+  transition: 0.15s ease;
+}
+.searchIn input,
+.searchOut input,
+.searchPeo > input,
+.search input {
+  width: 170px;
+  text-align: left;
+  height: 25px;
+  background-color: transparent;
+}
+.searchWhere:hover,
+.searchIn:hover,
+.searchOut:hover,
+.searchPeo:hover {
+  background-color: rgba(170, 170, 170, 0.19);
+}
+
+.searchIn label,
+.searchOut label {
+  position: relative;
+  top: -22px;
+  font-size: 14px;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+  outline: none;
+}
+/* input[type=date]::-webkit-datetime-edit-text {
+       -webkit-appearance: "none"; 
+       display: none; 
+    } 
+    
+ input[type=date]::-webkit-datetime-edit-month-field{ 
+        -webkit-appearance: none; 
+        display: none; 
+    
+    } 
+input[type=date]::-webkit-datetime-edit-day-field {
+         -webkit-appearance: none; 
+         display: none; 
+    } 
+input[type=date]::-webkit-datetime-edit-year-field {
+     -webkit-appearance: none; 
+     display: none; 
+     }  */
+
+.recommendPlaceContainer {
+  width: 100%;
+  height: 70vh;
+   margin-top: 130px;
+}
+
+.recommendPlaceContainer h3 {
+  margin-left: 7rem;
+  margin-top: 4.3rem;
+  margin-bottom: 3rem;
+  font-size: 2.3rem;
+  color: #e55757;
+}
+.recommendPlaceContainer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 1.5rem 0 1.5rem;
+}
+.recommendPlaceContainer div img {
+  width: 38vh;
+  height: 48vh;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.recommendActivityContainer h3 {
+  margin-left: 7rem;
+  margin-top: 3.4rem;
+  margin-bottom: 3rem;
+  font-size: 2.3rem;
+  color: #e55757;
+}
+
+.recommendActivityContainer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 1.5rem 0 1.5rem;
+}
+.recommendActivityContainer div img {
+  width: 38vh;
+  height: 48vh;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+/* joinmodal */
+
+.join-modal {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+}
+
+.join-modalContent {
+  margin: 130px auto;
+  width: 450px;
+  height: 400px;
+  background-color: #eeeeee;
+  border-radius: 0.6rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  animation-name: modalopen;
+  animation-duration: 0.5s;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.join-exitBtn {
+  text-align: right;
+  width: 5%;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.join-exitBtn img {
+  width: 1rem;
+  padding: 1rem;
+}
+.joinForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.joinHeader {
+  text-align: center;
+  color: #6f1313;
+  font-size: 20px;
+}
+.joinForm input {
+  width: 350px;
+  height: 1.7rem;
+  margin-bottom: 0.3rem;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+#searchEmail{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.joinForm .emailCheckBtn {
+  background-color: #d65f5f;
+  color: #eeeeee;
+  width: 350px;
+  height: 1.7rem;
+  border-radius: 0.375rem;
+  margin: 5px;
+}
+.joinForm .joinSubmit {
+  width: 370px;
+  border: 0.01rem solid #b87474;
+  padding: 0.1rem;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 1.3rem;
+  color: #d65f5f;
+  font-size: 16px;
+  font-weight: 700;
+}
+/* 
+  .alterLoginContainer {} */
+
+.alterJoinContainer {
+  width: 80%;
+  margin: 0 auto;
+}
+.divider {
+  width: 50%;
+  border-bottom: 1px solid #d65f5f;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.alterJoinContainer .join {
+  margin-bottom: 0.5rem;
+  border-radius: 0.375rem;
+  border: 0.01rem solid #6f6f6f;
+}
+
+.altercontent {
+  display: flex;
+  justify-content: space-between;
+}
+.altercontent div {
+  padding: 9px;
+}
+.emailLogin {
+  margin-bottom: 1rem;
+}
+.altercontent span {
+  padding: 15px 15px 8px 8px;
+  font-size: 14px;
+}
+.join div {
+  text-align: center;
+}
+
+.join div a {
+  text-align: center;
+}
+
+.join img {
+  width: 1.5rem;
+  padding: 0.1rem;
+}
+
+/* loginmodal */
+
+.login-modal {
+  display: none;
+  width: 100%;
+  height: 120%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top:0;
+  left: 0;
+   z-index: 5;
+}
+
+.login-modalContent {
+  margin: 100px auto;
+  width: 470px;
+  height: 630px;
+  background-color: #eeeeee;
+  border-radius: 0.6rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  animation-name: modalopen;
+  animation-duration: 0.5s;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.login-exitBtn {
+  text-align: right;
+  width: 5%;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.login-exitBtn img {
+  width: 1rem;
+  padding: 1rem;
+}
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loginHeader {
+  text-align: center;
+  color: #6f1313;
+  font-size: 20px;
+}
+.loginForm input {
+  width: 350px;
+  height: 1.7rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.loginForm .loginSubmit {
+  width: 370px;
+  border: 0.01rem solid #b87474;
+  padding: 0.1rem;
+  height: 50px;
+  margin-top: 1rem;
+  color: #d65f5f;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.authMsg{
+  font-size: 14px;
+  padding: 2px;
+}
+/* 
+  .alterLoginContainer {} */
+
+
+
+.alterLoginContainer {
+  width: 60%;
+  margin: 30px auto;
+}
+
+.alterLoginContainer .login {
+  margin-bottom: 0.5rem;
+  border-radius: 0.375rem;
+  border: 0.01rem solid #b87474;
+  height: 50px;
+}
+
+.loginAltercontent {
+  display: flex;
+  justify-content: space-between;
+}
+.loginAltercontent div {
+  padding: 9px;
+}
+.loginAltercontent span {
+  padding: 15px 15px 0px 8px;
+  font-size: 14px;
+  color: #d65f5f;
+  font-weight: 600;
+}
+.login div {
+  text-align: center;
+  box-shadow: none;
+}
+
+.abcRioButton{
+  margin-top: 5px;
+  border: none;
+
+} 
+
+.googleLogin a{
+  display: flex;
+  justify-content: space-between;
+}
+
+.googleLogin span{
+  padding: 15px 15px 0px 8px;
+  font-size: 14px;
+  color: #d65f5f;
+  font-weight: 600;
+}
+
+.abcRioButtonContentWrapper{
+  width: 45px;
+  background-color: #eeeeee;
+}
+.abcRioButtonSvg{
+ width: 35px;
+ margin-right: 10px;
+}
+
+.abcRioButtonContents span{
+  display: none;
+}
+.g-signin2{
+  width: 50px;
+}
+
+.kakaoLogin span{
+  padding: 15px 15px 0px 8px;
+  font-size: 14px;
+  color: #d65f5f;
+  font-weight: 600;
+}
+
+
+.login img {
+  width: 1.5rem;
+  padding: 0.1rem;
+}
+.footer {
+  width: 100%;
+  height: 40vh;
+  background-color: #eeeeee;
+  margin-top: 5rem;
+}
+
+.hostbanner {
+  margin: 70px auto;
+  width: 80%;
+  height: 467px;
+  background-color: #000000;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.hostbannerContainer img {
+  width: 700px;
+  margin-right: 80px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.hostbanner .bannerText {
+  position: absolute;
+  right: 30px;
+  color: #eeeeee;
+}
+.hostbanner .bannerText h2 {
+  font-size: 32px;
+}
+.hostbanner .bannerText h3 {
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+.hostRegisterBtn {
+  padding: 16px 24px 16px 24px;
+  background-color: #d65f5f;
+  color: #eeeeee;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+
+.borderBottom{
+	border-bottom: 3px solid #ffffff;
+}
+
+/* �떎�씠�떂�씠 異붽� �븯�떊 index style �뿬湲곗뿉 異붽� �뻽�뒿�땲�떎.  */
+
+
+.spanMsg{
+	font-size: 12px;
+	color:red;
+}
+
+.agree{
+  width: 270px;
+  position: absolute;
+  top: 340px;
+  left: 40%;
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: none;
+}
+
+.agree h2{
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.agree h3{
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.agree .removeAgree img{
+  width: 10px;
+ margin-right:230px;
+ margin-top: 10px;
+}
+

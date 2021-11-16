@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.main.sheerhouse.user.mapper.UserSearchResultMapper">
+	<select id="getResult" resultType="com.main.sheerhouse.host.domain.HomeVO">
+		select home.*
+		from home join host on home.host_seq = host.host_seq
+		where host.status=1 and home.address like CONCAT('%', #{location}, '%') and home.headcount >= #{people}
+		and 0 = FIND_IN_SET(#{checkin},home.unused_date) and 0 = FIND_IN_SET(#{checkout},home.unused_date)
+	</select>
+	<select id="getDetail" resultType="com.main.sheerhouse.host.domain.HomeVO">
+		select * from home where home_seq=#{home_seq} 	
+	</select>
+	<select id="searchHostEmail" resultType="String">
+		select email from host where host_seq=(select host_seq from home where home_seq=#{home_seq})
+	</select>
+	<select id="getComment" resultType="com.main.sheerhouse.user.domain.CommentVO">
+		select * from comment where home_seq=#{home_seq}
+	</select>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="com.main.sheerhouse.admin.mapper.AdminTermsMapper">
+   
+   <select id="selectTerms" resultType="com.main.sheerhouse.admin.domain.TermVO" >
+      select * from terms order by term_num desc
+   </select>
+   
+   <select id="getTerms" resultType="com.main.sheerhouse.admin.domain.TermVO">
+      select * from terms where term_num = #{term_num}
+   </select>
+   
+   <insert id ="insertTerms" parameterType="com.main.sheerhouse.admin.domain.TermVO">
+      insert into terms(title, sub_title, content) values(#{title}, #{sub_title}, #{content})
+   </insert>
+   <select id="selectbasicterm" resultType="com.main.sheerhouse.admin.domain.TermVO" >
+      select * from terms where title='basic'
+   </select>
+   <select id="selectguestterm" resultType="com.main.sheerhouse.admin.domain.TermVO" >
+      select * from terms where title='guest'
+   </select>
+   <select id="selecthostterm" resultType="com.main.sheerhouse.admin.domain.TermVO" >
+      select * from terms where title='host'
+   </select>
+
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.main.sheerhouse.user.mapper.UserPaymentMapper">
+	<insert id="insertHomeReservation" useGeneratedKeys="false"
+		parameterType="com.main.sheerhouse.user.domain.ReservationVO">
+		<selectKey order="BEFORE"
+			resultType="int"
+			keyProperty="home_seq" keyColumn="home_seq">
+			select home_seq
+			from home where title=#{title} and host_seq=(select host_seq from host where email=#{hostEmail})
+		</selectKey>
+		insert into reservation
+		(home_seq, email, total_price, headcount, pay_status, pay_date, apply_num, res_date)
+		values(#{home_seq}, #{res.email}, #{res.total_price}, #{res.headcount}, #{res.pay_status}, #{res.pay_date}, #{res.apply_num}, #{res.res_date})
+	</insert>
+	<select id="selectHome" resultType="com.main.sheerhouse.host.domain.HomeVO">
+		select * from home where home_seq=#{home_seq}
+	</select>
+	<update id="updateUnsusedDate">
+		update home set unused_date=#{unused} where home_seq=#{home_seq}
+	</update>
+	<insert id="insertSetHistory">
+		insert into settlement_history(host_seq, apply_num) values((select host_seq from home where home_seq=#{home_seq}), #{apply_num});
+	</insert>
+</mapper>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.main.sheerhouse.admin.mapper.AdminChartMapper">
+
+	<!-- inputYear의 inputMonth월의 신규회원 수 조회 -->
+	<select id="getNewUser" resultType="com.main.sheerhouse.admin.domain.ChartUserVO">
+		select DATE_FORMAT(regdate, '%m') as inputMonth, count(email) as cnt
+		from user group by inputMonth order by inputMonth;
+	</select>
+	
+	<!-- 전체 매출 조회 -->
+	<select id="totalPay" resultType="com.main.sheerhouse.admin.domain.ChartPayVO">
+		select apply_num, total_price from reservation;
+	</select>
+	
+	<!-- 월별 매출 조회 -->
+	<select id="totalPayMonth" resultType="com.main.sheerhouse.admin.domain.ChartPayVO">
+		select apply_num, DATE_FORMAT(pay_date, '%m') as inputMonth, sum(total_price) as total_price
+		from reservation
+		group by inputMonth order by inputMonth;
+	</select>
+	
+	<!-- 1. apply_num 이 같고 / 2. reservation 에서 paid / 3. settlement_history 에서 true // 전체 리스트 -->
+	<select id="paidRevenue" resultType="com.main.sheerhouse.admin.domain.ChartPayVO">
+		select
+			a.total_price,
+			b.apply_num from reservation a,
+			settlement_history b 
+		where
+			a.apply_num = b.apply_num and
+			a.pay_status = "paid" and
+			b.status = "true";
+	</select>
+	
+	<!-- 위와 같고 월별 리스트 -->
+	<select id="paidRevenueMonth" resultType="com.main.sheerhouse.admin.domain.ChartPayVO">
+		select
+			sum(a.total_price) as total_price,
+			date_format(a.pay_date, '%m') as inputMonth,
+			b.apply_num
+		from reservation a, settlement_history b 
+		where
+			a.apply_num = b.apply_num
+			and a.pay_status = "paid"
+			and b.status = "true"
+		group by inputMonth;
+	</select>
+	
+	<!-- 전체 예약수 조회 -->
+	<select id="cntRsvAll" resultType="int">
+		select count(apply_num) from reservation;
+	</select>
+
+	<!-- 성공한 예약수 조회 -->	
+	<select id="cntRsvSuccess" resultType="int">
+		select count(apply_num) from reservation where pay_status = "paid";
+	</select>
+	
+	<!-- 실패한 예약수 조회 -->
+	<select id="cntRsvFailed" resultType="int">
+		select count(apply_num) from reservation where pay_status = "failed";
+	</select>
+	
+	<select id="cntRsvStay" resultType="int">
+		select count(apply_num) from reservation where pay_status = "stay";
+	</select>
+	
+	<!-- inputMonth월별 새로 등록한 숙소 갯수 조회 -->
+	<select id = "getNewHome" resultType="com.main.sheerhouse.admin.domain.ChartHomeVO">
+		select DATE_FORMAT(regdate, '%m') as inputMonth, count(home_seq) as count
+		from home group by inputMonth order by inputMonth;
+	</select>
+	
+</mapper>

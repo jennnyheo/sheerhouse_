@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.main.sheerhouse.admin.mapper.AdminUserMapper">
+	
+	<!-- user테이블의 전체 내용을 보여주는 쿼리문 -->
+	<select id="userListAll" resultType="com.main.sheerhouse.user.domain.UserVO">
+		select * from user order by email ASC
+	</select>
+		
+	<!-- 검색한 단어가 포함된 파라미터만 선택하게 해주는 쿼리 -->
+	<select id="userResultList" resultType="com.main.sheerhouse.user.domain.UserVO">
+	select * from user where email like CONCAT('%',#{result},'%')
+		
+	</select>
+	
+	<!-- 총 게시글 갯수 출력 -->
+	<select id="countBoard" resultType="int">
+		SELECT COUNT(*) FROM user
+	</select>
+
+	<!-- 검색한 게시물 갯수 출력 -->
+	<select id="countBoardKey" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM user where email like CONCAT('%',#{result},'%')
+	</select>
+
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectBoard" resultType="com.main.sheerhouse.user.domain.UserVO">
+		select * from user order by email DESC limit #{start}, #{cntPerPage} 
+	</select>
+	
+	<!-- 검색한 게시물 페이징 처리 후 게시글 조회 -->
+	<select id="selectBoardList" resultType="com.main.sheerhouse.user.domain.UserVO">
+		select * from user where email like CONCAT('%',#{result},'%') limit #{start}, #{cntPerPage}
+	</select>
+	
+	<!-- 호스트, 웨이트 상태 유저만 조회 -->
+	<select id = "selectHostListAll" resultType="com.main.sheerhouse.user.domain.UserVO">
+		select * from user where role = 'host' or role = 'wait' limit #{start}, #{cntPerPage}
+	</select>
+	<!-- 웨이트 상태 유저만 조회(승인 쉽게 하기 위해) -->
+	<select id = "selectHostWaitList" resultType="com.main.sheerhouse.user.domain.UserVO">
+		select * from user where role = 'wait' limit #{start}, #{cntPerPage}
+	</select>
+	
+	<!-- 호스트 총 게시글 갯수 출력 -->
+	<select id="hostCountBoard" resultType="int">
+		SELECT COUNT(*) FROM user where role = 'host' or role = 'wait' 
+	</select>
+
+	<!-- 호스트 중 대기자 게시물 갯수 출력 -->
+	<select id="hostCountBoardKey" resultType="int">
+		SELECT COUNT(*) FROM user where role = 'wait'
+	</select>
+	
+	
+	<update id ="updateStopStatus">
+		update user set status = 3 where email = #{email}
+	</update>
+	
+	<update id="updateCancleStatus">
+		update user set status = 1 where email = #{email}
+	</update>
+	
+</mapper>

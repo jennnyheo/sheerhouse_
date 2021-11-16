@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.main.sheerhouse.admin.mapper.AdminHomeMapper">
+
+	<!-- home테이블의 전체 내용을 보여주는 쿼리문 -->
+	<select id="homeListAll" resultType="com.main.sheerhouse.admin.domain.HomeVO">
+		select h.home_seq, (select host.email from host where host.host_seq=h.host_seq) as host_email,
+		h.title, h.type, h.status, h.address from home as h;
+	</select>
+	
+	<update id ="updateStopStatus">
+		update home set status = 'off' where home_seq = #{home_seq}
+	</update>
+	
+	<update id="updateCancleStatus">
+		update home set status = 'on' where home_seq = #{home_seq}
+	</update>
+	
+	
+	
+</mapper>

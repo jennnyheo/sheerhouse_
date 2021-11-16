@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.main.sheerhouse.host.mapper.HostPageMapper">
+	<update id="hostUpdate">
+		update host set email=#{email}, name=#{name}, phone=#{phone}, host_info=#{host_info}, updatedate=CURRENT_TIMESTAMP 
+		where email=#{email}
+	</update>
+	<select id="selectHome" resultType="com.main.sheerhouse.host.domain.HomeVO">
+		select * from home where host_seq=(select host_seq from host where email=#{email})
+	</select>
+	<select id="selectResInfo" resultType="com.main.sheerhouse.host.domain.HostReservationInfoVO">
+		select r.*, h.title, h.info, h.rule, h.url 
+		from reservation as r join home as h on h.home_seq = r.home_seq
+		where h.host_seq=(select host_seq from host where host_seq=#{host_seq}) and right(r.res_date,10) > CURRENT_DATE()
+	</select>
+	
+	<select id="selectHisInfo" resultType="com.main.sheerhouse.host.domain.HostReservationInfoVO">
+		<![CDATA[select r.*, h.title, h.info, h.rule, h.url 
+				from reservation as r join home as h on h.home_seq = r.home_seq
+				where h.host_seq=(select host_seq from host where host_seq=#{host_seq}) and right(r.res_date,10) < CURRENT_DATE()
+				order by right(r.res_date,10) DESC]]>
+	</select>
+	<update id="updateHostAccountUrl">
+		update host set account_url=#{path} where host_seq=#{host_seq} 
+	</update>
+	<select id="selectSetList" resultType="com.main.sheerhouse.host.domain.SettlementHistotyVO">
+		select s.set_seq, (select title from home as h where h.home_seq=r.home_seq) as title, truncate((r.total_price*(1-15/100)),0) as set_price, r.total_price as price, r.pay_date, s.status, s.update_date
+		from settlement_history as s join reservation as r on s.apply_num = r.apply_num
+		where host_seq=#{host_seq} 
+		<choose>
+			<when test='keyword.equals("all")'>
+			</when>
+			<otherwise>
+				and s.status=#{keyword}
+			</otherwise>
+		</choose>
+		 order by r.pay_date DESC;
+	</select>
+	<select id="selectSetCalc" resultType="com.main.sheerhouse.host.domain.SettlementCalcVO">
+		select truncate((r.total_price*(1-15/100)),0) as set_price, s.status, r.pay_status as res_status, s.update_date, r.res_date
+		from settlement_history as s join reservation as r on s.apply_num = r.apply_num
+		where host_seq=#{host_seq} order by r.pay_date DESC;
+	</select>
+	<select id="selectResCalc" resultType="com.main.sheerhouse.host.domain.SettlementCalcVO">
+		select r.res_date, r.pay_status as res_status
+		from reservation as r join home as h on h.home_seq = r.home_seq
+		where h.host_seq=(select host_seq from host where host_seq=#{host_seq})
+	</select>
+	<select id="getHome" resultType="com.main.sheerhouse.host.domain.HomeVO">
+		select * from home where home_seq=#{home_seq}
+	</select>
+	<update id="updateHome" parameterType="com.main.sheerhouse.host.domain.HomeVO">
+		update home set title=#{title}, status=#{status}, type=#{type}, address=#{address}, price=#{price}, url=#{url}, unused_date=#{unused_date} where home_seq=#{home_seq}
+	</update>
+</mapper>

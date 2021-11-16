@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ol,
+ul,
+li {
+  list-style: noen;
+}
+.regulationContainer {
+  width: 100%;
+  height: 120vh;
+}
+.header {
+  text-align: center;
+  background-color: #d65f5f;
+  padding: 100px;
+}
+.header div h2 {
+  font-size: 38px;
+  color: #eeeeee;
+}
+
+.clickhere {
+  margin-top: 50px;
+  text-align: center;
+  color: #d65f5f;
+}
+.clickhereTitle {
+  display: inline-block;
+  cursor: pointer;
+}
+.divider {
+  width: 70%;
+  border-bottom: 0.3px solid #232323;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.agree1 {
+  display: none;
+  position: absolute;
+  left: 24.33%;
+  top: 60px;
+  cursor: pointer;
+  width: 740px;
+  height: 670px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.agreeHeader {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.check1,
+.check2 {
+  width: 100%;
+  height: 150px;
+  margin-top: 20px;
+}
+
+.companyRule {
+  margin: 20px 0 20px 0;
+}
+
+.companyRule h3 {
+  margin-bottom: 20px;
+}
+
+.agreeBtn {
+  width: 150px;
+  height: 50px;
+  background-color: #d65f5f;
+  margin: 20px 0 10px 0;
+  border-radius: 5px;
+  color: #eeeeee;
+  font-size: 16px;
+}
+.moveToRegi {
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.moveToRegi a {
+  /* display: none; */
+  width: 180px;
+  top: 70px;
+  padding: 15px;
+  /* background-color: #d65f5f; */
+  margin: 20px 0 10px 0;
+  border-radius: 5px;
+  color: #eeeeee;
+  font-size: 16px;
+  text-decoration: none;
+}

@@ -1,0 +1,222 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #2b2b2b;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 130vh;
+}
+/* 
+.navContainer {
+  width: 100%;
+  height: 17%;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px;
+}
+
+.navContainer .logoContainer {
+  width: 20%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.navContainer .logoContainer h2 {
+  font-size: 38px;
+  letter-spacing: 2px;
+  color: #ac0c0c;
+}
+.navContainer .logoContainer span {
+  font-size: 9px;
+  letter-spacing: 6px;
+}
+.searchbar-small {
+  width: 550px;
+  height: 60px;
+  margin-top: 40px;
+  border-radius: 99999px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px;
+}
+.searchbar-small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbar-small button {
+  background-color: transparent;
+  height: 35px;
+}
+.searchbar-small .locationBtn {
+  width: 150px;
+  border-right: 1.5px solid #cccccc;
+}
+.searchbar-small .dateBtn {
+  width: 200px;
+  border-right: 1.5px solid #cccccc;
+}
+.searchbar-small .peopleBtn {
+  width: 150px;
+}
+.menuContainer {
+  width: 20%;
+  text-align: center;
+  padding: 1rem;
+  padding-top: 40px;
+}
+.menuContainer .menus{
+	margin-top: 17px;
+}
+.menuContainer .menus li {
+  display: flex;	
+} */
+
+.accomodationResults-container {
+  display: flex;
+}
+.accomodationResult {
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.accomodationResult-container {
+  margin-top: 40px;
+  border-bottom: 0.5px solid #eeeeee;
+  padding-bottom: 20px;
+}
+.accomodationResult-container h2 {
+  margin-bottom: 20px;
+}
+.accomodationResult-container span {
+  font-size: 14px;
+}
+.divider-short {
+  width: 30px;
+  height: 1px;
+  background-color: #cccccc;
+  margin: 20px 0 20px 0;
+}
+.map {
+  width: 100%;
+  height: 100%;
+  background-color: #cccccc;
+}
+
+.resultAccomodation-container {
+  margin-top: 30px;
+}
+.resultAccomodationImg {
+  margin-right: 40px;
+}
+.resultAccomodationImg img {
+  border-radius: 5px;
+    width: 280px;
+    height: 180px;
+
+}
+.resultAccomodation {
+  display: flex;
+  justify-content: space-evenly;
+}
+.wishlistHeartIcon{
+  padding-top: 130px;
+}
+/* .wishlist{
+    color: #9D9D9D;
+} */
+@font-face {
+  font-family: 'entypo';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/entypo.woff') format('woff');
+}
+
+.entypo-heart:before{
+  content:"\2665";
+}
+
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+  font-size: 2.1em;
+}
+  
+.resultAccomodationText {
+  margin-top: 10px;
+  width: 280px;
+}
+.resultAccomodationText input.prices{
+  width: 110px;
+  font-size: 20px;
+}
+
+.divider-resultAccomodation{
+  width: 500px;
+  height: 1px;
+  background-color: #9d9d9d8f;
+  margin: 25px auto;
+}
+.mapText{
+	text-align: center;
+}
+
+
+.locationBtn span{
+  font-size: 12px;
+}
+.locationBtn input{
+  width: 130px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.dateBtn input{
+  width: 140px;
+  text-align: center;
+  padding-left: 43px;
+  margin-top: 5px;
+}
+
+.dateBtn span{
+  font-size: 12px;
+  width: 200px;
+}
+
+
+.peopleBtn span{
+  font-size: 12px;
+}
+.peopleBtn input{
+  width: 130px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.addColor{
+	color: d65f5f;
+}
+
+.navContainer .logoContainer img {
+  width: 150px;
+  letter-spacing: 2px;
+  color: #ac0c0c;
+  padding-left: 40px;
+}
+
+.locationBtn input {
+    margin-top: 5px;
+}
+
+.peopleBtn .peopleNumInfo {
+  margin-top: 7px;
+}

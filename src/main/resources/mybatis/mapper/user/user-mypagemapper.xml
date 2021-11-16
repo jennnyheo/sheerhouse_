@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.main.sheerhouse.user.mapper.UserMypageMapper">
+	<update id="userUpdate">
+		update user set name=#{name}, phone=#{phone}, birthday=#{birthday}, updatedate=CURRENT_TIMESTAMP where email = #{email}
+	</update>
+
+	<select id="wishListShow" resultType="com.main.sheerhouse.user.domain.WishListVO">
+		select * from user where email=#{email}
+	</select>
+
+	<select id="wishlist" resultType="com.main.sheerhouse.user.domain.WishListVO">
+		select * from wishlists where email=#{email}
+	</select>
+
+	<select id="wishListShowdesc" resultType="com.main.sheerhouse.user.domain.UserVO">
+		select * from user where email=#{email} order by name desc
+	</select>
+	
+	<resultMap type="com.main.sheerhouse.user.domain.WishListVO" id="wishlists">
+		<result property="home_seq" column="home_seq"></result>
+		<result property="act_seq" column="act_seq"></result>
+		<result property="email" column="email"></result>
+		<result property="status" column="status"></result>
+	</resultMap>
+
+	<resultMap type="com.main.sheerhouse.user.domain.ResultVO" id="wishlistsResult">
+		<result property="home_seq" column="home_seq"></result>
+		<result property="host_seq" column="host_seq"></result>
+		<result property="title" column="title"></result>
+		<result property="type" column="type"></result>
+		<result property="address" column="address"></result>
+		<result property="info" column="info"></result>
+		<result property="url" column="url"></result>
+		<result property="host_info" column="host_info"></result>
+		<result property="update_date" column="update_date"></result>
+		<result property="price" column="price"></result>
+	</resultMap>
+	<select id="showWishLists" parameterType="com.main.sheerhouse.user.domain.ResultVO" resultMap="wishlistsResult">
+		SELECT 	
+			w.home_seq,
+			w.email,
+			h.title,
+			h.type,
+			h.address,
+			h.info,
+			h.url,
+			h.host_info,
+			h.update_date,
+			h.price
+			FROM 
+				wishlists as w
+			LEFT JOIN
+				home as h
+			ON h.home_seq = w.home_seq
+			WHERE 
+				w.email = #{email}
+	</select>
+	
+	<resultMap type="com.main.sheerhouse.user.domain.ReservationInfoVO" id="reservation">
+		<result property="home_seq" column="home_seq"></result>
+		<result property="act_seq" column="act_seq"></result>
+		<result property="email" column="email"></result>
+		<result property="total_price" column="total_price"></result>
+		<result property="pay_date" column="pay_date"></result>
+		<result property="pay_status" column="pay_status"></result>
+		<result property="res_date" column="res_date"></result>
+		<result property="cancel_reason" column="cancel_reason"></result>
+		<result property="apply_num" column="apply_num"></result>
+		<result property="title" column="title"></result>
+		<result property="price" column="price"></result>
+		<result property="host_info" column="host_info"></result>
+		<result property="address" column="address"></result>
+		<result property="host_info" column="info"></result>
+		<result property="headcount" column="headcount"></result>
+		<result property="rule" column="rule"></result>
+	</resultMap>
+
+	<resultMap type="com.main.sheerhouse.user.domain.ResultVO" id="reservationInfo">
+		<result property="home_seq" column="home_seq"></result>
+		<result property="host_seq" column="host_seq"></result>
+		<result property="title" column="title"></result>
+		<result property="type" column="type"></result>
+		<result property="address" column="address"></result>
+		<result property="info" column="info"></result>
+		<result property="url" column="url"></result>
+		<result property="host_info" column="host_info"></result>
+		<result property="update_date" column="update_date"></result>
+		<result property="price" column="price"></result>
+	</resultMap>
+	
+	<select id="showReservationInfo" parameterType="com.main.sheerhouse.user.domain.ReservationInfoVO" resultMap="reservation">
+		SELECT 	
+			r.home_seq,
+			r.email,
+			r.res_date,
+			r.cancel_reason,
+			r.apply_num,
+			r.pay_date,
+			r.pay_status,
+			r.total_price,
+			r.headcount,
+			h.title,
+			h.type,
+			h.address,
+			h.info,
+			h.host_info,
+			h.price,
+			h.url
+			FROM 
+				reservation as r
+			LEFT JOIN
+				home as h
+			ON r.home_seq = h.home_seq
+			WHERE 
+				r.email = #{email}
+	</select>
+	
+	<select id="showReservationDetail" parameterType="com.main.sheerhouse.user.domain.ReservationInfoVO" resultMap="reservation">
+		SELECT 	
+			r.home_seq,
+			r.email,
+			r.res_date,
+			r.cancel_reason,
+			r.apply_num,
+			r.pay_date,
+			r.pay_status,
+			r.total_price,
+			r.headcount,
+			h.title,
+			h.type,
+			h.address,
+			h.info,
+			h.host_info,
+			h.price,
+			h.url
+			FROM 
+				reservation as r
+			LEFT JOIN
+				home as h
+			ON r.home_seq = h.home_seq
+			WHERE 
+				r.apply_num = #{apply_num} 
+	</select>
+	<insert id="insertComment">
+		INSERT INTO comment (home_seq, act_seq, name, content, regdate, apply_num, score) VALUES (#{home_seq}, 0, #{name}, #{content}, now(), #{apply_num}, #{score})
+	</insert>
+	<delete id="deleteComment">
+		DELETE FROM comment WHERE apply_num = #{apply_num}
+	</delete>
+	<update id="setStatus">
+		update user set status=2 where email=#{email}
+	</update>
+	<update id="setHostStatus">
+		update host set status=2 where email=#{email}
+	</update>
+	<select id="selectPayInfo" resultType="com.main.sheerhouse.user.domain.PayInfoVO">
+		select r.apply_num, h.title, (select email from host where h.host_seq=host_seq) as host_email,
+		r.total_price, r.res_date, r.pay_date, r.pay_status		from home as h join reservation as r 
+		on h.home_seq = r.home_seq
+		where r.email=#{email}
+	</select>
+	<select id="selectKeyPayInfo" resultType="com.main.sheerhouse.user.domain.PayInfoVO">
+		select r.apply_num, h.title, (select email from host where h.host_seq=host_seq) as host_email,
+		r.total_price, r.res_date, r.pay_date, r.pay_status
+		from home as h join reservation as r 
+		on h.home_seq = r.home_seq
+		where r.email=#{email} 
+		<choose>
+			<when test='keyword.equals("all")'>
+			</when>
+			<otherwise>
+				and r.pay_status=#{keyword}
+			</otherwise>
+		</choose>
+		 order by r.pay_date DESC
+	</select>
+	<update id="refundApply">
+		update reservation set cancel_reason=#{cancel_reason}, pay_status='stay' where apply_num=#{apply_num}
+	</update>
+	<delete id="deleteSettlement">
+		delete from settlement_history where apply_num=#{apply_num} 
+	</delete>
+</mapper>

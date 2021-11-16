@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.main.sheerhouse.user.mapper.UserLoginMapper">
+	<!-- 이메일 중복 체크 -->
+	<select id="emailCheck" resultType="com.main.sheerhouse.user.domain.UserVO"> <!-- email중복 체크 -->
+		select email, status from user where email=#{email}
+	</select>
+	<!-- 소셜로그인 회원가입 -->
+	<insert id="insertUser">
+		insert into user(email, password, name, phone, email_confirm) values(#{email}, #{password}, #{name}, #{phone}, #{emailConfirm})
+	</insert>
+	<select id="passwordCheck" resultType="String">
+		select password from user where email=#{email}
+	</select>
+	<update id="passwordUpdate" >
+		update user set password=#{password}, updatedate=CURRENT_TIMESTAMP where email=#{email}
+	</update>
+	<select id="selectUserInfo" resultType="com.main.sheerhouse.user.domain.UserVO">
+		select * from user where email=#{email}                                                                                                                                                                                                               
+	</select>
+	<select id="getUserStatus" resultType="int">
+		select status from user where email=#{email};
+	</select>
+	<update id="updateStatus">
+		update user set status=1 where email=#{email}
+	</update>
+	<update id="updateHostStatus">
+		update host set status=1 where email=#{email}
+	</update>
+</mapper>
